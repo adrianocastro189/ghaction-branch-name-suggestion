@@ -45,3 +45,7 @@ GitHub Actions available in the marketplace that might better suit your needs.
 1. Now, whenever an issue is milestoned, the action will suggest a branch name
    based on the issue's properties by commenting on it.
 
+## Changelog
+
+* 2025.10.30 - v1.0.4
+  * First release 
