@@ -10,7 +10,9 @@ runs:
     - name: Get the current action version being used
       id: get_action_version
       run: |
-        echo "action_version=$(echo $GITHUB_ACTION_REF | sed 's/refs\/tags\///')" >> "$GITHUB_OUTPUT"
+        version="${GITHUB_ACTION_REF:-unknown}"
+        version="${version#refs/tags/}"
+        echo "action_version=$version" >> "$GITHUB_OUTPUT"
       shell: bash
     - name: Check for release label
       id: check_release_label
