@@ -10,7 +10,10 @@ runs:
     - name: Check for release label
       id: check_release_label
       run: |
-        echo "is_release=${{ contains(github.event.issue.labels.*.name, 'release') }}" >> "$GITHUB_OUTPUT"
+        echo "is_release=${{ 
+          contains(github.event.issue.labels.*.name, 'release') || 
+          contains(github.event.issue.labels.*.name, '📦 release') 
+        }}" >> "$GITHUB_OUTPUT"
       shell: bash
     - name: Generate branch name suggestion
       id: generate_branch_name
